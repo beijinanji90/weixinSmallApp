@@ -1,0 +1,3 @@
+<view>
+<text bindtap="viewTap">abc</text>
+</view>
