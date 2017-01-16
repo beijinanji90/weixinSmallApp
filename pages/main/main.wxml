@@ -1,3 +1,58 @@
 <view>
-<text bindtap="viewTap">abc</text>
+=============================
+<template name="msgItem">
+    <view>
+        <text>{{index}}:{{msg}}</text>
+        <text>Time:{{time}}</text>
+    </view>
+</template>
+<template name="odd">
+  <view> odd </view>
+</template>
+<template name="even">
+  <view> even </view>
+</template>
+=============================
+<text bindtap="helloMINA">abc</text>
+<text>{{motto}}</text>
+<text id="item={{id}}"></text>
+<view wx:if="{{condition}}">Ha Ha</view>
+<checkbox checked="{{false}}"></checkbox>
+<view>{{a+b}} + {{c}} + d</view>
+<view wx:for="{{array}}">
+    {{index}}:{{item.message}}
+</view>
+<view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName">
+    {{idx}}:{{itemName.message}}
+</view>
+<view>
+============================
+</view>
+<view wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-index="i" wx:for-item="iValue">
+<view wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-index="j" wx:for-item="jValue">
+<view wx:if="{{i <= j}}">
+    {{iValue}}*{{jValue}} = {{iValue*jValue}}
+</view>
+</view>
+</view>
+<view>
+=============================
+<block wx:for="{{[1,2,3]}}">
+<view>{{index}}:</view>
+<view>{{item}}</view>
+</block>
+=============================
+<switch wx:for="{{objectArray}}" wx:key="unique" style="display: block;"> {{item.id}} </switch>
+<button bindtap="switch"> Switch </button>
+<button bindtap="addToFront"> Add to the front </button>
+
+<switch wx:for="{{numberArray}}" wx:key="*this" style="display: block;"> {{item}} </switch>
+<button bindtap="addNumberToFront"> Add to the front </button>
+=============================
+<template is="msgItem" data="{{...item}}"/>
+<block wx:for="{{[1, 2, 3, 4, 5]}}">
+    <template is="{{item % 2 == 0 ? 'even' : 'odd'}}" bindtap="tapTemplate"/>
+</block>
+<view bindtap="tapTemplate">click me</view>
+</view>
 </view>
